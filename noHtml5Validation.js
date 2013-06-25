@@ -78,9 +78,9 @@
 			displayError(field);
 			}
 		}
+		
 		if($(field).attr('pattern')){ // Pattern match
-			var input = document.getElementById($(field).attr('id'));
-			if(input.value.search(new RegExp(input.getAttribute('pattern'))) < 0){
+			if(field.value.search(new RegExp($(field).attr('pattern'))) < 0){
 				displayError(field);
 			}
 		}
