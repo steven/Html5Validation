@@ -17,11 +17,12 @@ Implementation
 _________________
 
 including options and their defaults
-	$(form).NoHtml5Validation({
-		elementTypes: 'input,select,textarea',
-		messageCheckbox: 'Please check this box if you want to proceed',
-		messageTextPattern: 'Please match the requested format',
-		messageTextEmail: 'Please enter a valid email address',
-		messageSelect: 'Please select an item from the list',
-		messageDefault: 'Please fill in this field'
-	});
+		
+		$(form).NoHtml5Validation({
+			elementTypes: 'input,select,textarea',
+			messageCheckbox: 'Please check this box if you want to proceed',
+			messageTextPattern: 'Please match the requested format',
+			messageTextEmail: 'Please enter a valid email address',
+			messageSelect: 'Please select an item from the list',
+			messageDefault: 'Please fill in this field'
+		});
