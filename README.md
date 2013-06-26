@@ -16,13 +16,12 @@ Additional support for new input types
 Implementation
 _________________
 
-$(form).NoHtml5Validation();
-
-Options and their defaults
-
-    elementTypes: 'input,select,textarea',
+including options and their defaults
+	$(form).NoHtml5Validation({
+		elementTypes: 'input,select,textarea',
 		messageCheckbox: 'Please check this box if you want to proceed',
 		messageTextPattern: 'Please match the requested format',
 		messageTextEmail: 'Please enter a valid email address',
 		messageSelect: 'Please select an item from the list',
 		messageDefault: 'Please fill in this field'
+	});
