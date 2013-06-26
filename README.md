@@ -7,11 +7,9 @@ The plugin mimics Mozilla Firefox's HTML5 validation look and feel.
 To-do's
 _____________
 
-IE7 z-index bug
-Input box highlighting for invalid fields
-Default email, pattern, select, checkbox messages if none provided
-Additional support for new input types 
-
+-	IE7 z-index bug
+-	Input box highlighting for invalid fields
+-	Additional support for new HTML5 input types 
 
 Implementation
 _________________
@@ -48,6 +46,29 @@ HTML form example
 		</div>
 		<button type="submit">Try me</button>
 	</form>
+
+
+CSS
+
+	.html5-error{
+		position:absolute;
+		top:110%;
+		padding:10px;
+		z-index:4000;
+		color:#000;
+		display:none;
+		background:#f0f0f0;
+		-webkit-border-radius: 2px;
+		-moz-border-radius: 2px;
+		border-radius: 2px;
+		-moz-box-shadow: 0 0 5px #888;
+		-webkit-box-shadow: 0 0 5px#888;
+		box-shadow: 0 0 5px #888;
+		font-size:0.95em;
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:70%;
+		left:0;
+	}
 
 
 Script
