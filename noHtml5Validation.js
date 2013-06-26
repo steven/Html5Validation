@@ -15,15 +15,21 @@
 */
 (function ( $ ) { // Used for compatibility with other plugins
 
-	// Define the element types that need checking
-	var elementTypes = 'input,select,textarea';
+	// Plugin defaults – added as a property on our plugin function.
+	var defaults = {
+    elementTypes: 'input,select,textarea',
+		messageCheckbox: 'Please check this box if you want to proceed',
+		messageTextPattern: 'Please match the requested format',
+		messageTextEmail: 'Please enter a valid email address',
+		messageSelect: 'Please select an item from the list',
+		messageDefault: 'Please fill in this field'
+  };
+	var settings; 
+	
 
 	// Check to see if the browser suppoers HTML5 by seeing if the checkValidity feature exists
 	var hasFormValidation = function() {
-		var ua = navigator.userAgent.toLowerCase(); 
-		if (ua.indexOf('safari')!=-1){  // Safari doesn't support the checkValidity feature
-			return false;
-		}
+		var ua = navigator.userAgent.toLowerCase(); +63
 		return (typeof document.createElement( 'input' ).checkValidity == 'function');
 	};
 	
@@ -35,16 +41,22 @@
 
 	// Initialise the for fields with the additional div needed to display the error
 	var init = function(form){
-		$.each($(elementTypes, form), function(){
+		$.each($(settings.elementTypes, form), function(){
 			// Check if the field is required and not a hidden text input
 			if($(this).attr('required') && $(this).attr('type') != 'hidden'){
 				if($(this).attr('data-validation-message')){
 					$errorMessage = $(this).attr('data-validation-message');
 				} else {
 					if($(this).prop('tagName') == 'SELECT'){
-						$errorMessage = 'Please select an item from the list';
+						$errorMessage = settings.messageSelect;
+					} else if($(this).data('pattern')){
+						$errorMessage = settings.messageTextPattern;
+					} else if($(this).attr('type') == 'checkbox'){
+						$errorMessage = settings.messageCheckbox;
+					} else if($(this).data('type') == 'email'){
+						$errorMessage = settings.messageTextEmail;
 					} else {
-						$errorMessage = 'Please fill in this field';
+						$errorMessage = settings.messageDefault;
 					}
 				}
 				$(this).parent().append('<div class="html5-error">'+$errorMessage+'</div>');
@@ -97,11 +109,12 @@
 		}
 	};
 	$.fn.NoHtml5Validation = function(options){
+		settings = $.extend( {}, defaults, options );
 		if(!hasFormValidation()){
 			init(this);
 			$(this).submit(function(){
 				$('.html5-error').hide();	
-				$.each($(elementTypes, this), function(){
+				$.each($(settings.elementTypes, this), function(){
 					if(!validateField(this)){
 						return false;
 					}

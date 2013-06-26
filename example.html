@@ -40,7 +40,7 @@
       </div>
     	<div class="validation-container">
     		<label for="checkbox">Numbers only please</label>
-    		<input type="text" data-validation-message="Please enter at least 3 numbers in sequence" required pattern="[0-9]{3}">
+    		<input type="text" required pattern="[0-9]{3}">
       </div>
     	<div class="validation-container">
       	<label>Choose an option</label>
@@ -57,7 +57,7 @@
       </div>
     	<div class="validation-container">
     		<label for="checkbox">Check me please</label>
-        <input type="checkbox" required id="checkbox" data-validation-message="Please tick this box if you want to proceed">
+        <input type="checkbox" required id="checkbox">
       </div>
       <button type="submit">Try me</button>
     </form>
@@ -65,7 +65,7 @@
     <script src="NoHtml5Validation.js"></script>
     <script type="text/javascript">
 			$(function(){
-				$('form#test').NoHtml5Validation();
+				$('form#test').NoHtml5Validation({checkboxErrorMessage: ''});
 			});
 		</script>
   </body>
