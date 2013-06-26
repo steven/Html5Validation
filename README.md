@@ -17,7 +17,9 @@ Implementation
 _________________
 
 including options and their defaults
-		
+
+HTML form example
+
 	<form action="#" id="test">
 		<div class="validation-container">
 			<label for="checkbox">Email</label>
@@ -48,7 +50,9 @@ including options and their defaults
 	</form>
 
 
-	$('form#test).NoHtml5Validation({
+Script
+
+	$('form#test').NoHtml5Validation({
 		elementTypes: 'input,select,textarea',
 		messageCheckbox: 'Please check this box if you want to proceed',
 		messageTextPattern: 'Please match the requested format',
