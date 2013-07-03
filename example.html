@@ -5,38 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <form action="example.html" id="test" novalidate>
-      <label for="checkbox">Email</label>
-      <input type="email" required>
-      <br>
-      <label for="checkbox">123 only please</label>
-      <input type="text" required pattern="([0-9]{3})">
-      <br>
-      
-      <label>Choose an option</label>
-      <select required>
-        <option value="">Option 1 is empty</option>
-        <option>Option 2 is NOT empty</option>
-        <option>Option 3 is NOT empty</option>
-        <option>Option 3 is NOT empty</option>
-      </select>
-      <br>
-      
-      <label>Please write something</label>
-      <textarea required></textarea>
-      <br>
-      
-      <label for="checkbox">Check me please</label>
-      <input type="checkbox" required id="checkbox">
-      
-      <button type="submit">Try me</button>
-    </form>
+
+	<form action="#" id="testEmail">
+		<label for="checkbox">Email</label>
+		<input type="email" required>
+		<button type="submit">Try me</button>
+	</form>
+			
+	<form action="#" id="testPattern">
+		<label>Numbers only please</label>
+		<input type="text" required pattern="[0-9]{3}">
+		<button type="submit">Try me</button>
+	</form>
+  
+	<form action="#" id="testSelect">
+		<label>Choose an option</label>
+		<select required>
+			<option value="">Option 1 is empty</option>
+			<option>Option 2 is NOT empty</option>
+			<option>Option 3 is NOT empty</option>
+			<option>Option 3 is NOT empty</option>
+		</select><br>
+		<label for="checkbox">Check me please</label>
+		<input type="checkbox" required>
+		<button type="submit">Try me</button>
+	</form>
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="Html5Validation.js"></script>
     <script type="text/javascript">
 			$(function(){
-				//$('form#test').Html5Validation();
-				$('form#test').Html5Validation({css : { htmlError : { top : '120%', left : 0} } } );
+				$('form#testEmail').Html5Validation({
+					elementTypes: 'input',
+					css : { htmlError : { top : '120%', left : 0} }
+				});
+				
+				$('form#testPattern').Html5Validation({
+					elementTypes: 'input'
+				});
+				
+				$('form#testSelect').Html5Validation({
+					elementTypes: 'select, input'
+				});
 			});
 		</script>
   </body>

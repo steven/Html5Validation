@@ -1,5 +1,5 @@
 /*
-	Html5Validation v0.1
+	Html5Validation v0.2
 	Updated: June 25, 2013
 
 	http://www.fantasmagorical.co.uk/
@@ -35,7 +35,7 @@
 				'-webkit-box-shadow'		: '0 0 5px #888',
 				'box-shadow'						:	'0 0 5px #888',
 				'fontSize'							:	'8pt',
-				'fontFamily'						:	'Arial, Helvetica, sans-serif',
+				'fontFamily'						:	'Arial, Helvetica, sans-serif'
 			},
 			validationContainer	: {
 				position					:	'relative',
