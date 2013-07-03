@@ -70,7 +70,6 @@
 
 	// Check to see if the browser supports HTML5 by seeing if the checkValidity feature exists
 	var hasFormValidation = function() {
-		return false;
 		var ua = navigator.userAgent.toLowerCase();
 		return (typeof document.createElement( 'input' ).checkValidity == 'function');
 	};
