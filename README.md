@@ -8,7 +8,7 @@ Updates in Html5Validation v0.2
 _____________
 
 - CSS styling is performed within the plugin so no additional styles are needed
-- Standard HTML5 input types being used e.g. <input type="email" required>
+- Standard HTML5 input attributes (pattern) detected
 
 
 To-do's
